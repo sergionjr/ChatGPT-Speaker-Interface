@@ -1,34 +1,29 @@
 
-
-const addNumber = (a: number, b: number) => {
-    return a + b;
-}
+// import the openai chatgpt library
 
 
-
+// import the openai chatgpt library
+import * as chatgpt from "chatgpt";
 
 
 
-// write a function that removes only the 3rd whitespace in a string
-// example: "Hello   World" -> "Hello World"
-const remove3rdWhitespace = (str: string) => {
-    let count = 0;
-    let newString = "";
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === " ") {
-            count++;
-            if (count === 3) {
-                continue;
-            }
-        }
-        newString += str[i];
+
+
+
+async function main() {
+
+    const myParams = {
+        apiKey: "",
     }
-    return newString;
+
+
+
+    const api = new chatgpt.ChatGPTAPI(myParams);
+
+    api.sendMessage("Hi ChatGPT. What is the weather in Austin today").then((response: any) => {
+        console.log(response);
+    });
 }
 
 
-var myString: string = "Here is a string before whitespace";
-
-console.log(myString)
-
-console.log(remove3rdWhitespace(myString));
+main();
