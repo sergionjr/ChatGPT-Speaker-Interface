@@ -16,12 +16,14 @@ export class GPT {
     private openai = new oai.OpenAIApi(this.configuration());
 
     oai = new oai.OpenAIApi(this.configuration());
-    
 
     response = async () => {
-        const res = await this.openai.listEngines();
+        await this.openai.listEngines().then((data) => {
+            console.log(data);
+        }, (error) => {
+            console.error(error);
+        },);
     }
-
 
     
 
@@ -33,5 +35,10 @@ export class GPT {
 
 
 
+}
+
+export const test = () => {
+
+    console.log("Hello World");
 }
 

@@ -1,14 +1,18 @@
 
 
 // import a local file called gpt.ts
-import { GPT } from './gpt';
+import * as GPT from './gpt.ts';
 
 
 async function main() {
 
-    const gpt = new GPT();
+    const gpt = new GPT.GPT();
+
+    
 
     console.log(gpt.oai.listEngines());
+
+    await gpt.response();
 }
 
 
