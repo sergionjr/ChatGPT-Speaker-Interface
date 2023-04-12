@@ -1,29 +1,16 @@
 
-// import the openai chatgpt library
 
-
-// import the openai chatgpt library
-import * as chatgpt from "chatgpt";
-
-
-
-
+// import a local file called gpt.ts
+import { GPT } from './gpt';
 
 
 async function main() {
 
-    const myParams = {
-        apiKey: "",
-    }
+    const gpt = new GPT();
 
-
-
-    const api = new chatgpt.ChatGPTAPI(myParams);
-
-    api.sendMessage("Hi ChatGPT. What is the weather in Austin today").then((response: any) => {
-        console.log(response);
-    });
+    console.log(gpt.oai.listEngines());
 }
 
 
-main();
+// call the main function
+main(); 
