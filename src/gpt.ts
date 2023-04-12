@@ -19,7 +19,8 @@ export class GPT {
 
     response = async () => {
         await this.openai.listEngines().then((data) => {
-            console.log(data);
+            console.log(data.headers);
+            console.log(data.data);
         }, (error) => {
             console.error(error);
         },);
